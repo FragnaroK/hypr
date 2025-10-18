@@ -34,16 +34,19 @@ toggle_config() {
 
     if [ $? -ne 0 ]; then
         echo "Error: Could not set $1 mode"
+        notify-send --urgency=critical "Environment Setup" "Could not set $1 mode"
         exit 1
     fi
 
     echo "Monitors config set to $1 mode"
+    notify-send "Environment Setup" "Monitors config set to $1 mode"
 }
 
 if [[ "$selected_env" == "desktop" ]] || [[ "$selected_env" == "laptop" ]]; then
     toggle_config "$selected_env"
 else
     echo "Error: Option $selected_env not implemented"
+    notify-send "Environment Setup" "Option $selected_env not implemented"
     exit 1
 fi
  
