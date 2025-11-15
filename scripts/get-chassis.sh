@@ -9,4 +9,4 @@ fi
 
 : "${CHASSIS:=unknown}"
 
-echo "$CHASSIS"
+echo "$CHASSIS" | awk '{print tolower($0)}'
